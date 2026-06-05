@@ -179,4 +179,8 @@
     letter-spacing: 0.02em;
     word-spacing: 0.08em;
   }
+
+  @media print {
+    body { background: white; }
+  }
 }

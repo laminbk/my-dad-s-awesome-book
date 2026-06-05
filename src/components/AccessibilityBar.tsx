@@ -33,7 +33,7 @@ export function AccessibilityBar() {
   }, [lastSavedAt]);
 
   return (
-    <nav className="sticky top-0 z-50 flex flex-wrap justify-between items-center gap-3 px-4 sm:px-6 py-3 border-b border-ink/10 bg-canvas/85 backdrop-blur-sm">
+    <nav className="sticky top-0 z-50 flex flex-wrap justify-between items-center gap-3 px-4 sm:px-6 py-3 border-b border-ink/10 bg-canvas/85 backdrop-blur-sm print:hidden">
       <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
         <a href="/" className="font-hand text-2xl text-crayon-red mr-2 -rotate-2">
           All About My Dad

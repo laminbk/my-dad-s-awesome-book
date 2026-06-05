@@ -11,7 +11,7 @@ const COLORS = [
   { name: "Black", value: "#27272a", token: "bg-ink" },
 ];
 
-export function DrawingCanvas() {
+export function DrawingCanvas({ overlay }: { overlay?: React.ReactNode }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
   const drawingRef = useRef(false);
@@ -124,6 +124,7 @@ export function DrawingCanvas() {
           onPointerLeave={onUp}
           aria-label="Drawing area for your dad"
         />
+        {overlay}
       </div>
       <div className="flex flex-wrap gap-2 items-center justify-between p-3 bg-white rounded-2xl ring-1 ring-ink/10">
         <div className="flex gap-2 items-center flex-wrap">

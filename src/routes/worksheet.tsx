@@ -162,19 +162,12 @@ function WorksheetPage() {
                     <label className="font-hand text-3xl text-crayon-blue">Draw a picture of {dadName || "Dad"}!</label>
                     <Speak text={`Draw a picture of ${dadName || "Dad"}!`} />
                   </div>
-                  <div className="relative">
-                    <DrawingCanvas />
-                    {/* sticker overlay sits on top of canvas wrap via portal-like absolute positioning */}
-                  </div>
-                  <div className="relative h-0">
-                    {/* This intentionally empty — stickers render inside the canvas wrapper below via separate layer */}
-                  </div>
+                  <DrawingCanvas overlay={<StickerLayer editable />} />
+                  <p className="text-xs text-ink/40">Tip: tap a sticker in the box to add it, then drag to move it around.</p>
                 </div>
                 <div className="w-full lg:w-72 shrink-0">
                   <StickerTray />
                 </div>
-                {/* Floating stickers overlay on top of preview drawing area */}
-                <StickerOverlayInCanvas />
               </div>
             )}
 
@@ -235,18 +228,6 @@ function WorksheetPage() {
           {" "}<Link to="/" className="underline">Home</Link>
         </p>
       </div>
-    </div>
-  );
-}
-
-// Render sticker layer on top of drawing canvas using a fixed positioning trick:
-// we look up the canvas wrapper by data attribute. Simpler: keep stickers in a sibling absolute overlay.
-function StickerOverlayInCanvas() {
-  // Renders an absolutely positioned layer matching the previous DrawingCanvas wrap.
-  // To avoid a portal, we render an inline overlay below; layout-wise it sits behind the tray.
-  return (
-    <div className="hidden" aria-hidden>
-      <StickerLayer editable />
     </div>
   );
 }

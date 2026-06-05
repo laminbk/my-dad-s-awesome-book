@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorksheetRouteImport } from './routes/worksheet'
+import { Route as PreviewRouteImport } from './routes/preview'
 import { Route as IndexRouteImport } from './routes/index'
 
 const WorksheetRoute = WorksheetRouteImport.update({
   id: '/worksheet',
   path: '/worksheet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PreviewRoute = PreviewRouteImport.update({
+  id: '/preview',
+  path: '/preview',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,27 +31,31 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/preview': typeof PreviewRoute
   '/worksheet': typeof WorksheetRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/preview': typeof PreviewRoute
   '/worksheet': typeof WorksheetRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/preview': typeof PreviewRoute
   '/worksheet': typeof WorksheetRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/worksheet'
+  fullPaths: '/' | '/preview' | '/worksheet'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/worksheet'
-  id: '__root__' | '/' | '/worksheet'
+  to: '/' | '/preview' | '/worksheet'
+  id: '__root__' | '/' | '/preview' | '/worksheet'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PreviewRoute: typeof PreviewRoute
   WorksheetRoute: typeof WorksheetRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/worksheet'
       fullPath: '/worksheet'
       preLoaderRoute: typeof WorksheetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/preview': {
+      id: '/preview'
+      path: '/preview'
+      fullPath: '/preview'
+      preLoaderRoute: typeof PreviewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PreviewRoute: PreviewRoute,
   WorksheetRoute: WorksheetRoute,
 }
 export const routeTree = rootRouteImport

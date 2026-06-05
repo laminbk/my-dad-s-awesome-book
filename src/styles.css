@@ -4,6 +4,18 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-ink: var(--ink);
+  --color-crayon-red: var(--crayon-red);
+  --color-crayon-blue: var(--crayon-blue);
+  --color-crayon-yellow: var(--crayon-yellow);
+  --color-crayon-green: var(--crayon-green);
+  --color-crayon-purple: var(--crayon-purple);
+  --font-hand: "Schoolbell", cursive;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
 /*
  * Design system definition.
  *
@@ -63,6 +75,13 @@
 
 :root {
   --radius: 0.625rem;
+  --canvas: oklch(0.985 0.012 95);
+  --ink: oklch(0.24 0.01 270);
+  --crayon-red: oklch(0.62 0.22 18);
+  --crayon-blue: oklch(0.62 0.16 235);
+  --crayon-yellow: oklch(0.74 0.16 70);
+  --crayon-green: oklch(0.62 0.14 160);
+  --crayon-purple: oklch(0.6 0.2 300);
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
@@ -138,7 +157,26 @@
   }
 
   body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
+    background-color: var(--canvas);
+    color: var(--ink);
+    font-family: var(--font-sans);
+  }
+
+  html.hc {
+    --canvas: oklch(1 0 0);
+    --ink: oklch(0 0 0);
+    --crayon-red: oklch(0.5 0.28 28);
+    --crayon-blue: oklch(0.42 0.22 245);
+    --crayon-yellow: oklch(0.78 0.18 80);
+    --crayon-green: oklch(0.5 0.18 155);
+  }
+
+  html.dyslexia body,
+  html.dyslexia input,
+  html.dyslexia textarea,
+  html.dyslexia button {
+    font-family: "Comic Sans MS", "Trebuchet MS", "Verdana", system-ui, sans-serif !important;
+    letter-spacing: 0.02em;
+    word-spacing: 0.08em;
   }
 }

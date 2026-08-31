@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="1.6"/>
+    </filter>
+  </defs>
+  <!-- canvas/paper background -->
+  <rect width="64" height="64" rx="10" fill="#FBF6EA"/>
+  <!-- crayon strokes: D for Dad, hand-drawn feel -->
+  <g filter="url(#rough)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="6">
+    <!-- vertical stroke of D -->
+    <path d="M22 16 L22 48" stroke="#D6453C"/>
+    <!-- curved bowl of D -->
+    <path d="M22 16 C38 16 44 24 44 32 C44 40 38 48 22 48" stroke="#3A7BC8"/>
+  </g>
+  <!-- little crayon star accent -->
+  <g filter="url(#rough)">
+    <circle cx="50" cy="14" r="3.5" fill="#E8B43A"/>
+  </g>
+</svg>

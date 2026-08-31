@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Mail, Check } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { externalSupabase } from "@/lib/supabase-external";
 import { toast } from "sonner";
 
 export function NewsletterBox() {

@@ -16,7 +16,7 @@ export function NewsletterBox() {
       return;
     }
     setLoading(true);
-    const { error } = await supabase.from("newsletter_subscribers").insert({ email: value });
+    const { error } = await externalSupabase.from("newsletter_subscribers").insert({ email: value });
     setLoading(false);
     if (error) {
       if (error.code === "23505") {

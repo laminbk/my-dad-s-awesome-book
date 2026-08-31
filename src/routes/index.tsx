@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { Plus, Sparkles, PenTool, Download } from "lucide-react";
+import { NewsletterBox } from "@/components/NewsletterBox";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -81,6 +82,8 @@ function Index() {
           </div>
         </div>
       </section>
+
+      <NewsletterBox />
 
       <footer className="py-10 text-center text-sm text-ink/40">
         <p className="font-hand text-xl text-ink/40">Made with lots of love</p>

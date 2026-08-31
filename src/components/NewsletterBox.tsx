@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Mail, Check } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { externalSupabase } from "@/lib/supabase-external";
 import { toast } from "sonner";
 
 export function NewsletterBox() {
@@ -16,7 +16,7 @@ export function NewsletterBox() {
       return;
     }
     setLoading(true);
-    const { error } = await supabase.from("newsletter_subscribers").insert({ email: value });
+    const { error } = await externalSupabase.from("newsletter_subscribers").insert({ email: value });
     setLoading(false);
     if (error) {
       if (error.code === "23505") {

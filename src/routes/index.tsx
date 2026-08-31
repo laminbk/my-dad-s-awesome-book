@@ -19,7 +19,32 @@ function Index() {
     <div className="min-h-[calc(100vh-64px)]">
       <section className="py-16 sm:py-24 px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <span className="font-hand text-2xl text-crayon-blue inline-block -rotate-2">A special gift just for him</span>
+          <span className="relative inline-block -rotate-2">
+            <span className="font-hand text-2xl text-crayon-blue">A special gift just for him</span>
+            <svg
+              viewBox="0 0 300 20"
+              preserveAspectRatio="none"
+              className="absolute -bottom-2 left-0 w-full h-3 text-crayon-yellow"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M6 13 C 60 4, 120 4, 170 9 C 220 14, 260 13, 294 6"
+                stroke="currentColor"
+                strokeWidth="5"
+                strokeLinecap="round"
+                style={{ filter: "url(#crayonTexture)" }}
+              />
+              <path
+                d="M6 13 C 60 4, 120 4, 170 9 C 220 14, 260 13, 294 6"
+                stroke="currentColor"
+                strokeWidth="5"
+                strokeLinecap="round"
+                opacity="0.4"
+                transform="translate(1.5,1)"
+              />
+            </svg>
+          </span>
           <h1 className="mt-4 text-5xl sm:text-6xl lg:text-7xl font-semibold text-ink text-balance leading-tight">
             Create a Storybook<br />
             <span className="font-hand text-crayon-red text-6xl sm:text-7xl lg:text-8xl inline-block rotate-[-2deg]">All About My Dad</span>
